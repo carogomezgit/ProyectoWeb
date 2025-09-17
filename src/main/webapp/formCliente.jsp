@@ -13,11 +13,13 @@
 
 <label for="txtNombre"> Nombre </label>
 <input type="text" name="txtNombre" id="txtNombre" placeholder="Nombre" required />
+<br>
 <label for="txtApellido"> Apellido </label>
 <input type="text" name="txtApellido" id="txtApellido" placeholder="Apellido" required />
+<br>
 <label for="txtTelefono"> Telefono </label>
 <input type="text" name="txtTelefono" id="txtTelefono" placeholder="Telefono" required />
-
+<br>
 <input type="submit" value="Enviar" />
 
 </form>
