@@ -5,6 +5,8 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.progI.dao.ClienteImpl;
+import org.progI.entities.Cliente;
 
 import java.io.IOException;
 import java.util.Date;
@@ -27,6 +29,11 @@ public class seCliente extends HttpServlet {
     telefono = req.getParameter("txtTelefono");
     operacion = req.getParameter("operacion");
     id = Integer.parseInt(req.getParameter("txtId"));
+
+    // para guardar el cliente
+    Cliente clienteNuevo = new Cliente(id, nombre, apellido, telefono);
+    ClienteImpl clienteDAO = new ClienteImpl();
+    clienteDAO.insert(clienteNuevo);
 
     RequestDispatcher rd = req.getRequestDispatcher("/index.jsp");
     rd.forward(req, res);
