@@ -19,6 +19,5 @@ public class HelloServlet extends HttpServlet {
 
     RequestDispatcher rd = req.getRequestDispatcher("/hello.jsp");
     rd.forward(req, res);
-
   }
 }
