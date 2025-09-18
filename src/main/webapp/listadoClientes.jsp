@@ -9,6 +9,13 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.List" %>
 
+<!-- abro bloque de declaracion java -->
+<%!
+    ClienteImpl clienteDao = new ClienteImpl();
+    Cliente cliente = new Cliente();
+    List<Cliente> listaClientes = clienteDao.getAll();
+%>
+
 <h2>Listado de Clientes</h2>
 <table>
     <thead>
@@ -22,11 +29,15 @@
     </tr>
     </thead>
     <tbody>
+
+
+        <c:forEach items="${listaClientes}" var="c">
+        <tr>${c.getId()}</tr>
+        <tr>${c.getNombre()}</tr>
+        <tr>${c.getApellido()}</tr>
+        <tr>${c.getTelefono()}</tr>
         <tr></tr>
         <tr></tr>
-        <tr></tr>
-        <tr></tr>
-        <tr></tr>
-        <tr></tr>
+        </c:forEach>
     </tbody>
 </table>

@@ -7,6 +7,8 @@
 <a href="formAuto.jsp"> Nuevo Auto </a>
 <br>
 <a href="formCliente.jsp"> Nuevo Cliente </a>
+<br>
+<a href="listadoClientes.jsp"> Listado de Clientes </a>
 
 </body>
 
