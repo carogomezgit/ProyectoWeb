@@ -1,29 +1,29 @@
 package org.progI.entities;
 
 public class Cliente implements Comparable {
-
-  private int idCliente;
+  private int id;
   private String nombre;
   private String apellido;
   private String telefono;
 
-  public Cliente(){
-  }
+  // Constructor
+  public Cliente() {
 
-  public Cliente(int idCliente, String nombre, String apellido, String telefono){
-    this.idCliente = idCliente;
+  }
+  public Cliente(int id, String nombre, String apellido, String telefono) {
+    this.id = id;
     this.nombre = nombre;
     this.apellido = apellido;
     this.telefono = telefono;
   }
 
-
-  public int getIdCliente() {
-    return idCliente;
+  // Getters y Setters
+  public int getId() {
+    return id;
   }
 
-  public void setIdCliente(int idCliente) {
-    this.idCliente = idCliente;
+  public void setId(int id) {
+    this.id = id;
   }
 
   public String getNombre() {
@@ -53,7 +53,7 @@ public class Cliente implements Comparable {
   @Override
   public String toString() {
     return "Cliente{" +
-        "idCliente=" + idCliente +
+        "id=" + id +
         ", nombre='" + nombre + '\'' +
         ", apellido='" + apellido + '\'' +
         ", telefono='" + telefono + '\'' +
@@ -62,13 +62,13 @@ public class Cliente implements Comparable {
 
   @Override
   public int compareTo(Object o) {
-    Cliente otroCliente = (Cliente) o;
-    int compararApellido = this.apellido.compareTo(otroCliente.apellido);
+    Cliente otro= (Cliente) o;
+    int comparacionApellido = this.apellido.compareTo(otro.apellido);
 
-    if (compararApellido != 0) {
-      return compararApellido;
+    if (comparacionApellido != 0) {
+      return comparacionApellido;
     }
 
-    return this.nombre.compareTo(otroCliente.nombre);
+    return this.nombre.compareTo(otro.nombre);
   }
 }

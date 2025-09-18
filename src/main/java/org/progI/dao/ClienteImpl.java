@@ -13,23 +13,25 @@ public class ClienteImpl implements DAO<Cliente, Integer>, AdmConexion{
   private Connection conn = null;
 
   private static final String SQL_INSERT =
-      "INSERT INTO clientes (nombre,apellido,telefono) " +
+      "INSERT INTO clientes (nombre, apellido, telefono) " +
       "VALUES (?, ?, ?)";
 
   private static final String SQL_UPDATE =
       "UPDATE clientes SET " +
           "nombre = ? , apellido = ? , telefono = ? " +
-          "WHERE idCliente = ?";
+          "WHERE id = ?";
 
-  private static final String SQL_DELETE = "DELETE FROM clientes WHERE idCliente = ?";
+  private static final String SQL_DELETE = "DELETE FROM clientes WHERE id = ?";
   private static final String SQL_GETALL = "SELECT * FROM clientes";
-  private static final String SQL_GETBYID = "SELECT * FROM clientes WHERE idCliente = ? ";
+  private static final String SQL_GETBYID = "SELECT * FROM clientes WHERE id = ? ";
 
   @Override
   public List<Cliente> getAll() {
     conn = obtenerConexion();
+
     PreparedStatement pst = null;
     ResultSet rs = null;
+
     List<Cliente> listaClientes = new ArrayList<>();
 
     try {
@@ -38,7 +40,7 @@ public class ClienteImpl implements DAO<Cliente, Integer>, AdmConexion{
 
       while (rs.next()) {
         Cliente cliente = new Cliente();
-        cliente.setIdCliente(rs.getInt("id"));
+        cliente.setId(rs.getInt("id"));
         cliente.setNombre(rs.getString("nombre"));
         cliente.setApellido(rs.getString("apellido"));
         cliente.setTelefono(rs.getString("telefono"));
@@ -89,7 +91,7 @@ public class ClienteImpl implements DAO<Cliente, Integer>, AdmConexion{
   public void update(Cliente objeto) {
     Cliente cliente = objeto;
 
-    if (this.existsById(cliente.getIdCliente())) {
+    if (this.existsById(cliente.getId())) {
       conn = obtenerConexion();
       PreparedStatement pst = null;
 
@@ -99,7 +101,7 @@ public class ClienteImpl implements DAO<Cliente, Integer>, AdmConexion{
         pst.setString(1,cliente.getNombre());
         pst.setString(2,cliente.getApellido());
         pst.setString(3,cliente.getTelefono());
-        pst.setInt(4,cliente.getIdCliente());
+        pst.setInt(4,cliente.getId());
 
         int resultado = pst.executeUpdate();
         if (resultado == 1) {
@@ -157,7 +159,7 @@ public class ClienteImpl implements DAO<Cliente, Integer>, AdmConexion{
 
       if (rs.next()) {
         cliente = new Cliente();
-        cliente.setIdCliente(rs.getInt("id"));
+        cliente.setId(rs.getInt("id"));
         cliente.setNombre(rs.getString("nombre"));
         cliente.setApellido(rs.getString("apellido"));
         cliente.setTelefono(rs.getString("telefono"));

@@ -92,7 +92,7 @@ public class AutoImpl implements DAO<Auto, Integer>, AdmConexion {
 
     ClienteImpl clienteImpl = new ClienteImpl();
     SeguroImpl seguroImpl = new SeguroImpl();
-    boolean existeCliente = clienteImpl.existsById(auto.getCliente().getIdCliente());
+    boolean existeCliente = clienteImpl.existsById(auto.getCliente().getId());
     boolean existeSeguro = seguroImpl.existsById(auto.getSeguro().getIdSeguro());
     // solo guardo si existe el cliente y el seguro en la base de datos
     if (existeCliente && existeSeguro) {
@@ -110,7 +110,7 @@ public class AutoImpl implements DAO<Auto, Integer>, AdmConexion {
         pst.setString(5, auto.getMarca().toString());
         pst.setString(6, auto.getModelo());
 
-        pst.setInt(7, auto.getCliente().getIdCliente());
+        pst.setInt(7, auto.getCliente().getId());
 
         pst.setInt(8, auto.getSeguro().getIdSeguro());
 
@@ -138,7 +138,7 @@ public class AutoImpl implements DAO<Auto, Integer>, AdmConexion {
       }
     }
     else {
-      System.out.println("No se puede insertar el auto. No existe el cliente con id: " + auto.getCliente().getIdCliente());
+      System.out.println("No se puede insertar el auto. No existe el cliente con id: " + auto.getCliente().getId());
       System.out.println("No se puede insertar el seguro. No existe el seguro con id: " + auto.getSeguro().getIdSeguro());
     }
   }

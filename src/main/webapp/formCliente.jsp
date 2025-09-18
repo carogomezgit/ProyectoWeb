@@ -1,15 +1,15 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page isELIgnored="false" %> .
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%@ include file="header.jsp" %>
 
-<html>
-<body>
+
 <h2>Formulario de Cliente</h2>
 
 <form action="seCliente" method="GET">
 
-<index type="hidden" name="txtId" id="txtId" value="-1" />
-<index type="hidden" name="Operacion" id="operacion" value="nuevo" />
+<input type="hidden" name="txtId" id="txtId" value="-1" />
+<input type="hidden" name="operacion" id="operacion" value="nuevo" />
 
 <label for="txtNombre"> Nombre </label>
 <input type="text" name="txtNombre" id="txtNombre" placeholder="Nombre" required />
@@ -26,6 +26,8 @@
 
 <a href="index.jsp"> Ir a Inicio </a>
 
+
+<%@ include file="footer.jsp" %>
 </body>
 
 </html>
