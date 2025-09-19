@@ -30,14 +30,16 @@
     </thead>
     <tbody>
 
+    <tr>
+    <% for(Cliente c : listaClientes) { %>
 
-        <c:forEach items="${listaClientes}" var="c">
-        <tr>${c.getId()}</tr>
-        <tr>${c.getNombre()}</tr>
-        <tr>${c.getApellido()}</tr>
-        <tr>${c.getTelefono()}</tr>
-        <tr></tr>
-        <tr></tr>
-        </c:forEach>
+        <td> <%=c.getId() %> </td>
+        <td> <%=c.getNombre() %> </td>
+        <td> <%=c.getApellido() %> </td>
+        <td> <%=c.getTelefono() %> </td>
+        <td></td>
+        <td></td>
+        </tr>
+     <% } %>
     </tbody>
 </table>
