@@ -10,6 +10,7 @@
 <br>
 <a href="listadoClientes.jsp"> Listado de Clientes </a>
 
+<%@ include file="footer.jsp" %>
 </body>
 
 </html>

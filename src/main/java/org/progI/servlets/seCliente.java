@@ -31,9 +31,18 @@ public class seCliente extends HttpServlet {
     id = Integer.parseInt(req.getParameter("txtId"));
 
     // para guardar el cliente
-    Cliente clienteNuevo = new Cliente(id, nombre, apellido, telefono);
     ClienteImpl clienteDAO = new ClienteImpl();
-    clienteDAO.insert(clienteNuevo);
+    if (operacion == "nuevo") { // si es nuevo
+      Cliente clienteNuevo = new Cliente(id, nombre, apellido, telefono);
+      clienteDAO.insert(clienteNuevo);
+    }
+    if (operacion == "editar") { // si es editar
+      Cliente clienteEditar = clienteDAO.getById(id);
+      clienteEditar.setNombre(nombre);
+      clienteEditar.setApellido(apellido);
+      clienteEditar.setTelefono(telefono);
+      clienteDAO.update(clienteEditar);
+    }
 
     RequestDispatcher rd = req.getRequestDispatcher("/index.jsp");
     rd.forward(req, res);
