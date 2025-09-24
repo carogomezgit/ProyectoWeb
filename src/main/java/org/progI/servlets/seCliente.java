@@ -32,7 +32,9 @@ public class seCliente extends HttpServlet {
       telefono = req.getParameter("txtTelefono");
       id = Integer.parseInt(req.getParameter("txtId"));
     }
-    else {id = Integer.parseInt(req.getParameter("id"));}
+    else {
+      id = Integer.parseInt(req.getParameter("id"));
+    }
 
     // para guardar el cliente
     ClienteImpl clienteDAO = new ClienteImpl();
