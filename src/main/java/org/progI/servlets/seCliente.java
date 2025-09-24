@@ -36,12 +36,19 @@ public class seCliente extends HttpServlet {
       Cliente clienteNuevo = new Cliente(id, nombre, apellido, telefono);
       clienteDAO.insert(clienteNuevo);
     }
+
+    // para editar el cliente
     if (operacion == "editar") { // si es editar
       Cliente clienteEditar = clienteDAO.getById(id);
       clienteEditar.setNombre(nombre);
       clienteEditar.setApellido(apellido);
       clienteEditar.setTelefono(telefono);
       clienteDAO.update(clienteEditar);
+    }
+
+    // para borrar el cliente
+    if (operacion == "eliminar") { // si es borrar
+      clienteDAO.delete(id);
     }
 
     RequestDispatcher rd = req.getRequestDispatcher("/index.jsp");
