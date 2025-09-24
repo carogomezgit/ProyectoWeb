@@ -7,7 +7,7 @@
 <jsp:useBean id="clienteDao" class="org.progI.dao.ClienteImpl" scope="page" />
 
 <c:if test="${param.operacion == 'editar'}">
-    <c:set var="idCliente" value="${Integer.parseInt(param.id)}"> />
+    <c:set var="idCliente" value="${Integer.parseInt(param.id)}" />
     <c:set var="clienteEditar" value="${clienteDao.getById(idCliente)}" />
 </c:if>
 
