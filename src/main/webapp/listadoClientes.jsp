@@ -37,8 +37,8 @@
         <td> <%=c.getNombre() %> </td>
         <td> <%=c.getApellido() %> </td>
         <td> <%=c.getTelefono() %> </td>
-        <td></td>
-        <td></td>
+        <td> <a href="formCliente.jsp?operacion=editar&id=<%=c.getId() %>">Editar</a></td>
+        <td>  </td>
         </tr>
      <% } %>
     </tbody>
