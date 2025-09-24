@@ -24,15 +24,15 @@ public class seCliente extends HttpServlet {
     String telefono = "";
     int id = -1;
 
-    if (operacion == "editar" || operacion == "eliminar") {
+    operacion = req.getParameter("operacion");
+
+    if (operacion == "editar" || operacion == "nuevo") {
       nombre = req.getParameter("txtNombre");
       apellido = req.getParameter("txtApellido");
       telefono = req.getParameter("txtTelefono");
       id = Integer.parseInt(req.getParameter("txtId"));
     }
     else {id = Integer.parseInt(req.getParameter("id"));}
-
-    operacion = req.getParameter("operacion");
 
     // para guardar el cliente
     ClienteImpl clienteDAO = new ClienteImpl();
