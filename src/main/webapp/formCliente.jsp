@@ -9,6 +9,7 @@
 <c:if test="${param.operacion == 'editar'}">
     <c:set var="idCliente" value="${Integer.parseInt(param.id)}" />
     <c:set var="clienteEditar" value="${clienteDao.getById(idCliente)}" />
+    <c:set var="listaClientes" value="${clienteDao.getAll}" />
 </c:if>
 
 <c:choose>
@@ -23,6 +24,18 @@
 <h2>Formulario de Nuevo Cliente</h2>
 
 <form action="seCliente" method="GET">
+
+<label for="selectCliente">Seleccionar Cliente</label>
+<select name="lstCliente" id="lstCliente" tabindex="1">
+    <c:forEach var="cli" items="${listaClientes}">
+        <option value="${cli.id}"
+            <c:if test="${clienteEditar.id == cli.id}">selected</c:if>>
+            ${cli.nombre} ${cli.apellido}
+            </option>
+        </c:forEach>
+    </select>
+<br>
+
 
 <input type="hidden" name="txtId" id="txtId"
     value="${not empty clienteEditar.id ? clienteEditar.id : -1}"
