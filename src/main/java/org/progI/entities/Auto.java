@@ -27,6 +27,17 @@ public class Auto implements Comparable {
     this.seguro = new Seguro();
 	}
 
+  // constructor para clase seAuto
+  public Auto(int idAuto, String patente, String color, int anio, int kilometraje, Marca marca, String modelo){
+    this.idAuto = idAuto;
+    this.patente = patente;
+    this.color = color;
+    this.anio = anio;
+    this.kilometraje = kilometraje;
+    this.marca = marca;
+    this.modelo = modelo;
+  }
+
 	public Auto(String patente, String color, int anio, int kilometraje, Marca marca, String modelo, Cliente cliente, Seguro seguro) {
 		this.patente = patente;
 		this.color = color;

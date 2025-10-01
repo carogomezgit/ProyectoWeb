@@ -17,6 +17,9 @@
     <c:otherwise> Nuevo Cliente </c:otherwise>
 </c:choose>
 
+<html>
+
+<body>
 <h2>Formulario de Nuevo Cliente</h2>
 
 <form action="seCliente" method="GET">

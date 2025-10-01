@@ -30,7 +30,7 @@ public class seCliente extends HttpServlet {
       nombre = req.getParameter("txtNombre");
       apellido = req.getParameter("txtApellido");
       telefono = req.getParameter("txtTelefono");
-      id = Integer.parseInt(req.getParameter("txtId"));
+      id = Integer.parseInt(req.getParameter("txtIdCliente"));
     }
     else {
       id = Integer.parseInt(req.getParameter("id"));
