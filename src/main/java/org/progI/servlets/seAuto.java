@@ -1,5 +1,6 @@
 package org.progI.servlets;
 
+import com.mysql.cj.xdevapi.Client;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -34,15 +35,15 @@ public class seAuto extends HttpServlet {
 
     operacion = req.getParameter("operacion");
 
-    if (operacion == "editar" || operacion == "nuevo") {
+    if (operacion.equals("editar") || operacion.equals("nuevo"))  {
       patente = req.getParameter("txtPatente");
       color = req.getParameter("txtColor");
       anio = Integer.parseInt(req.getParameter("txtAnio"));
       kilometraje = Integer.parseInt(req.getParameter("txtKilometraje"));
       marca = Marca.valueOf(req.getParameter("txtMarca"));
       modelo = req.getParameter("txtModelo");
-      // cliente = req.getParameter("txtCliente");
-      // seguro = req.getParameter("txtSeguro");
+      // cliente
+      // seguro
       idAuto = Integer.parseInt(req.getParameter("txtIdAuto"));
     } else {
       idAuto = Integer.parseInt(req.getParameter("idAuto"));
@@ -50,14 +51,14 @@ public class seAuto extends HttpServlet {
 
     // para guardar el auto
     AutoImpl autoDAO = new AutoImpl();
-    if (operacion == "nuevo") { // si es nuevo
+    if (operacion.equals("nuevo")) { // si es nuevo
       Auto autoNuevo = new Auto(idAuto, patente, color, anio,
           kilometraje, marca, modelo);
       autoDAO.insert(autoNuevo);
     }
 
     // para editar el auto
-    if (operacion == "editar") { // si es editar
+    if (operacion.equals("editar")) { // si es editar
       Auto autoEditar = autoDAO.getById(idAuto);
       autoEditar.setPatente(patente);
       autoEditar.setColor(color);
@@ -69,7 +70,7 @@ public class seAuto extends HttpServlet {
     }
 
     // para borrar el cliente
-    if (operacion == "eliminar") { // si es borrar
+    if (operacion.equals("eliminar")) { // si es borrar
       autoDAO.delete(idAuto);
     }
 

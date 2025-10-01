@@ -42,13 +42,13 @@ required />
     value="${not empty autoEditar.color ? autoEditar.color : ''}"
 required />
 <br>
-<label for="txtApellido"> Año </label>
+<label for="txtAnio"> Año </label>
 <input type="text" name="txtAnio" id="txtAnio" placeholder="Año"
     value="${not empty autoEditar.anio ? autoEditar.anio : ''}"
 required />
 <br>
-<label for="txtApellido"> Kilometraje </label>
-<input type="text" name="txtKilometraje" id="txtKilometraje" placeholder="Apellido"
+<label for="txtKilometraje"> Kilometraje </label>
+<input type="text" name="txtKilometraje" id="txtKilometraje" placeholder="Kilomtraje"
     value="${not empty autoEditar.kilometraje ? autoEditar.kilometraje : ''}"
 required />
 <br>
@@ -60,16 +60,6 @@ required />
 <label for="txtModelo"> Modelo </label>
 <input type="text" name="txtModelo" id="txtModelo" placeholder="Modelo"
     value="${not empty autoEditar.modelo ? autoEditar.modelo : ''}"
-required />
-<br>
-<label for="txtCliente"> Cliente </label>
-<input type="text" name="txtCliente" id="txtCliente" placeholder="Cliente"
-    value="${not empty autoEditar.cliente ? autoEditar.cliente : ''}"
-required />
-<br>
-<label for="txtSeguro"> Seguro </label>
-<input type="text" name="txtSeguro" id="txtSeguro" placeholder="Seguro"
-    value="${not empty autoEditar.seguro ? autoEditar.seguro : ''}"
 required />
 <br>
 

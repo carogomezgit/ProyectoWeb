@@ -34,6 +34,7 @@ public interface AdmConexion {
       System.out.println("No se pudo conectar a la BD");
       throw new RuntimeException(e);
     }
+    System.out.println("Conexión exitosa a la BD");
     return conn;
   }
 }

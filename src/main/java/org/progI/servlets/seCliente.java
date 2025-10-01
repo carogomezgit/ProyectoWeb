@@ -26,25 +26,29 @@ public class seCliente extends HttpServlet {
 
     operacion = req.getParameter("operacion");
 
-    if (operacion == "editar" || operacion == "nuevo") {
+    if (operacion.equals("editar") || operacion.equals("nuevo")) {
       nombre = req.getParameter("txtNombre");
       apellido = req.getParameter("txtApellido");
       telefono = req.getParameter("txtTelefono");
-      id = Integer.parseInt(req.getParameter("txtIdCliente"));
+      id = Integer.parseInt(req.getParameter("txtId"));
     }
     else {
-      id = Integer.parseInt(req.getParameter("id"));
+      if (req.getParameter("id")!=null){
+        id = Integer.parseInt(req.getParameter("id"));
+      }
+      else
+      id=-1;
     }
 
     // para guardar el cliente
     ClienteImpl clienteDAO = new ClienteImpl();
-    if (operacion == "nuevo") { // si es nuevo
+    if (operacion.equals("nuevo")) { // si es nuevo
       Cliente clienteNuevo = new Cliente(id, nombre, apellido, telefono);
       clienteDAO.insert(clienteNuevo);
     }
 
     // para editar el cliente
-    if (operacion == "editar") { // si es editar
+    if (operacion.equals("editar")) { // si es editar
       Cliente clienteEditar = clienteDAO.getById(id);
       clienteEditar.setNombre(nombre);
       clienteEditar.setApellido(apellido);
@@ -53,7 +57,7 @@ public class seCliente extends HttpServlet {
     }
 
     // para borrar el cliente
-    if (operacion == "eliminar") { // si es borrar
+    if (operacion.equals("eliminar")) { // si es borrar
       clienteDAO.delete(id);
     }
 

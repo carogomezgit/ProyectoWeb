@@ -34,17 +34,17 @@
 
 <label for="txtNombre"> Nombre </label>
 <input type="text" name="txtNombre" id="txtNombre" placeholder="Nombre"
-    value="${not empty clienteEditar.nombre ? clienteEditar.nombre : ''}"
+    value="${ not empty clienteEditar.nombre ? clienteEditar.nombre : '' }"
 required />
 <br>
 <label for="txtApellido"> Apellido </label>
 <input type="text" name="txtApellido" id="txtApellido" placeholder="Apellido"
-    value="${not empty clienteEditar.apellido ? clienteEditar.apellido : ''}"
+    value="${ not empty clienteEditar.apellido ? clienteEditar.apellido : '' }"
 required />
 <br>
 <label for="txtTelefono"> Telefono </label>
 <input type="text" name="txtTelefono" id="txtTelefono" placeholder="Telefono"
-    value="${not empty clienteEditar.telefono ? clienteEditar.telefono : ''}"
+    value="${ not empty clienteEditar.telefono ? clienteEditar.telefono : '' }"
 required />
 <br>
 <input type="submit" value="Enviar" />

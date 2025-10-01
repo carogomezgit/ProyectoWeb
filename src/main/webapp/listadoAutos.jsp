@@ -27,6 +27,7 @@
         <th>Kilometraje</th>
         <th>Marca</th>
         <th>Modelo</th>
+        <th>Editar</th>
         <th>Borrar</th>
     </tr>
     </thead>
@@ -34,7 +35,7 @@
 
     <tr>
     <% for(Auto a : listaAutos) { %>
-
+        <td> <%=a.getIdAuto() %> </td>
         <td> <%=a.getPatente() %> </td>
         <td> <%=a.getColor() %> </td>
         <td> <%=a.getAnio() %> </td>

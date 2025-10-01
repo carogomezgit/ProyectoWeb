@@ -32,7 +32,6 @@
 
     <tr>
     <% for(Cliente c : listaClientes) { %>
-
         <td> <%=c.getId() %> </td>
         <td> <%=c.getNombre() %> </td>
         <td> <%=c.getApellido() %> </td>
